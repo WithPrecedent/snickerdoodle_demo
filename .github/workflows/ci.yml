@@ -71,7 +71,7 @@ jobs:
       run: uv venv
 
     - name: install dependencies
-      run: uv pip install
+      run: uv pip install -r pyproject.toml --all-groups
 
     - name: run ruff
       run: uv run ruff check --format=github .
