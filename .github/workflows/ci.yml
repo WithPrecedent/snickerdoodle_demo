@@ -43,7 +43,7 @@ jobs:
       run: uv venv
 
     - name: install dependencies
-      run: uv pip install -r pyproject.toml --group dev --group tests
+      run: uv pip install -r pyproject.toml --group dev --group tests --group quality
 
     - name: run pre-commit
       run: uv run pre-commit run -a --show-diff-on-failure
