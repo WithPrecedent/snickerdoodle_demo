@@ -1378,6 +1378,7 @@ source = { editable = "." }
 
 [package.dev-dependencies]
 dev = [
+    { name = "coverage" },
     { name = "markdown-callouts" },
     { name = "markdown-exec" },
     { name = "mkdocs" },
@@ -1388,13 +1389,16 @@ dev = [
     { name = "mkdocs-material" },
     { name = "mkdocs-minify-plugin" },
     { name = "mkdocstrings", extra = ["python"] },
-    { name = "toml" },
-    { name = "uv" },
-]
-quality = [
     { name = "mypy" },
     { name = "pre-commit" },
+    { name = "pytest" },
+    { name = "pytest-cookies" },
+    { name = "pytest-cov" },
+    { name = "pytest-randomly" },
+    { name = "pytest-xdist" },
     { name = "ruff" },
+    { name = "toml" },
+    { name = "uv" },
 ]
 tests = [
     { name = "coverage" },
@@ -1409,6 +1413,7 @@ tests = [
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "coverage" },
     { name = "markdown-callouts" },
     { name = "markdown-exec" },
     { name = "mkdocs" },
@@ -1419,13 +1424,16 @@ dev = [
     { name = "mkdocs-material" },
     { name = "mkdocs-minify-plugin" },
     { name = "mkdocstrings", extras = ["python"] },
-    { name = "toml" },
-    { name = "uv" },
-]
-quality = [
     { name = "mypy" },
     { name = "pre-commit" },
+    { name = "pytest" },
+    { name = "pytest-cookies" },
+    { name = "pytest-cov" },
+    { name = "pytest-randomly" },
+    { name = "pytest-xdist" },
     { name = "ruff" },
+    { name = "toml" },
+    { name = "uv" },
 ]
 tests = [
     { name = "coverage" },

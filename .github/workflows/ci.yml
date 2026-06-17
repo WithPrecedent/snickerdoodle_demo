@@ -43,7 +43,7 @@ jobs:
       run: uv venv
 
     - name: install dependencies
-      run: uv pip install -r pyproject.toml --group dev --group tests --group quality
+      run: uv pip install -r pyproject.toml --group dev
 
     - name: run pre-commit
       run: uv run pre-commit run -a --show-diff-on-failure
@@ -71,7 +71,7 @@ jobs:
       run: uv venv
 
     - name: install dependencies
-      run: uv pip install -r pyproject.toml --group dev --group quality
+      run: uv pip install -r pyproject.toml --group dev
 
     - name: run ruff
       run: uv run ruff check --format=github .

@@ -45,11 +45,11 @@ dev = [
     "mkdocs-material",
     "mkdocs-minify-plugin",
     "mkdocstrings[python]",
-    "toml"]
-quality = [
+    "toml",
     "mypy",
     "pre-commit",
-    "ruff"]
+    "ruff",
+    {include-group = "tests"}]
 tests = [
     "coverage",
     "pytest",
