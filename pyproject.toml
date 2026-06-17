@@ -35,7 +35,6 @@ Changelog = "https://WithPrecedent.github.io/snickerdoodle_demo/changelog"
 [dependency-groups]
 dev = [
     "uv",
-    
     "markdown-callouts",
     "markdown-exec",
     "mkdocs",
