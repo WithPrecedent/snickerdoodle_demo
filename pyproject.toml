@@ -1,20 +1,21 @@
 # Project packaging rules and instructions
 
 [project]
-name = "snickerdoodle_demo"
-description = "Demonstration repository of the snickerdoodle cookliecutter template"
+name = "snickerdoodle-demo"
+description = "Demonstration repository of the snickerdoodle cookiecutter template"
 authors = [{name = "Corey Rayburn Yung", email = "coreyrayburnyung@gmail.com"}]
-license = {text = "Apache Software License 2.0"}
+license = "Apache-2.0"
+license-files = ["LICENSE"]
 readme = "README.md"
-requires-python = ">=3.10"
-version = "0.0.1"
+requires-python = ">=3.11"
+# The version is set by `__version__` in "src/snickerdoodle_demo/__init__.py".
+dynamic = ["version"]
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
@@ -53,24 +54,30 @@ dev = [
 tests = [
     "coverage",
     "pytest",
-    "pytest-cookies",
     "pytest-cov",
     "pytest-randomly",
     "pytest-xdist"]
 
 [build-system]
-requires = ["hatchling"]
+# Version 1.27 is the first to support SPDX license expressions (PEP 639).
+requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
 
+[tool.hatch.version]
+path = "src/snickerdoodle_demo/__init__.py"
+
 [tool.hatch.build.targets.wheel]
-packages = ["src/snickerdoodle-demo"]
+packages = ["src/snickerdoodle_demo"]
 
 
 [tool.coverage.report]
 skip_empty = true
 show_missing = true
-exclude_lines = [
-  "if TYPE_CHECKING:"]
+# Adds to (instead of replacing) the default exclusions, such as
+# "pragma: no cover".
+exclude_also = [
+  "if TYPE_CHECKING:",
+  "if __name__ == .__main__.:"]
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
@@ -78,7 +85,9 @@ tests = ["tests", "*/tests"]
 
 [tool.coverage.run]
 branch = true
-source = ["snickerdoodle-demo", "tests"]
+source = ["snickerdoodle_demo", "tests"]
+
+
 
 [tool.mypy]
 files = ['src']
@@ -90,10 +99,10 @@ warn_return_any = true
 warn_unused_ignores = true
 show_error_codes = true
 
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "--showlocals"
-asyncio_mode = "auto"
 filterwarnings = ["ignore::DeprecationWarning"]
 pythonpath = ["src"]
 
@@ -121,6 +130,7 @@ lint.ignore = [
     "ERA001",  # Commented out code
     "EXE002",  # No shebang is present in an executable file
     "FBT001",  # Boolean positional arg in function definition
+    "FBT002",  # Boolean default positional arg in function definition
     "G004",  # Logging statement uses f-string
     "PTH123",  # `open()` should be replaced by `Path.open()`
     "PLR0911",  # Too many return statements
@@ -190,7 +200,7 @@ suppress-none-returning = true
 
 [tool.ruff.lint.flake8-quotes]
 docstring-quotes = "double"
-inline-quotes = "double"
+inline-quotes = "single"
 multiline-quotes = "double"
 
 [tool.ruff.lint.flake8-type-checking]
@@ -210,3 +220,8 @@ ignore-decorators = ["typing.overload"]
 
 [tool.uv]
 package = true
+
+[tool.cruft]
+# Paths that `cruft update` leaves alone because they belong to this project
+# instead of the `snickerdoodle` template.
+skip = ["CHANGELOG.md", "src", "tests", "uv.lock"]
