@@ -61,7 +61,7 @@ tests = [
 
 [build-system]
 # Version 1.27 is the first to support SPDX license expressions (PEP 639).
-requires = ["hatchling>=1.27"]
+requires = ["hatchling>=1.32.4"]
 build-backend = "hatchling.build"
 
 [tool.hatch.version]
