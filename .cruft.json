@@ -1,0 +1,33 @@
+{
+  "template": "https://github.com/WithPrecedent/snickerdoodle",
+  "commit": "26c3b004cfbe99281659dee7e08a63c4d0edad93",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "snickerdoodle demo",
+      "package_name": "snickerdoodle-demo",
+      "repo_name": "snickerdoodle_demo",
+      "author_name": "Corey Rayburn Yung",
+      "author_email": "coreyrayburnyung@gmail.com",
+      "github_user": "WithPrecedent",
+      "description": "Demonstration repository of the snickerdoodle cookiecutter template",
+      "version": "0.0.1",
+      "url": "https://github.com/WithPrecedent/snickerdoodle_demo",
+      "development_status": "Development Status :: 2 - Pre-Alpha",
+      "license": "Apache Software License 2.0",
+      "badge_style": "flat",
+      "github_actions": true,
+      "pre_commit": true,
+      "dependabot": true,
+      "mkdocs": true,
+      "mypy": true,
+      "pypi": true,
+      "code_coverage": true,
+      "commit_to_github": false,
+      "virtual_environment": false,
+      "_template": "https://github.com/WithPrecedent/snickerdoodle",
+      "_commit": "26c3b004cfbe99281659dee7e08a63c4d0edad93"
+    }
+  },
+  "directory": null
+}
